@@ -1,6 +1,6 @@
 #pragma once
 
-class ILostFunction {
+class ILossFunction {
 	public:
 		virtual double f(double predicted, double correct) = 0;
 		virtual double df(double predicted, double correct) = 0;
@@ -10,7 +10,7 @@ class ILostFunction {
 
 
 //--- mean absolute error
-class MAE : public ILostFunction {
+class MAE : public ILossFunction {
 	public:
 		virtual double f(double predicted, double correct) override;
 		virtual double df(double predicted, double correct) override;
@@ -19,7 +19,7 @@ class MAE : public ILostFunction {
 
 
 //--- mean square error
-class MSE : public ILostFunction {
+class MSE : public ILossFunction {
 	public:
 		virtual double f(double predicted, double correct) override;
 		virtual double df(double predicted, double correct) override;
@@ -28,7 +28,7 @@ class MSE : public ILostFunction {
 
 
 //--- Root Mean Square error
-class RMSE : public ILostFunction {
+class RMSE : public ILossFunction {
 	public:
 		virtual double f(double predicted, double correct) override;
 		virtual double df(double predicted, double correct) override;
@@ -37,7 +37,7 @@ class RMSE : public ILostFunction {
 
 
 //--- Cross Entropy
-class CrossEntropy : public ILostFunction {
+class CrossEntropy : public ILossFunction {
 	public:
 		virtual double f(double predicted, double correct) override;
 		virtual double df(double predicted, double correct) override;

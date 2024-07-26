@@ -155,17 +155,17 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="00-utils\neuron.cpp" />
     <ClCompile Include="activation-functions.cpp" />
     <ClCompile Include="lost-function.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="neuron.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="00-utils\neuron.h" />
     <ClInclude Include="activation-functions.h" />
     <ClInclude Include="basic-includes.h" />
     <ClInclude Include="lost-function.h" />
+    <ClInclude Include="neuron.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

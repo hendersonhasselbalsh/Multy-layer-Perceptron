@@ -11,7 +11,7 @@
     <ClCompile Include="lost-function.cpp">
       <Filter>loss-functions</Filter>
     </ClCompile>
-    <ClCompile Include="00-utils\neuron.cpp">
+    <ClCompile Include="neuron.cpp">
       <Filter>neuron</Filter>
     </ClCompile>
   </ItemGroup>
@@ -28,7 +28,7 @@
     <ClInclude Include="lost-function.h">
       <Filter>loss-functions</Filter>
     </ClInclude>
-    <ClInclude Include="00-utils\neuron.h">
+    <ClInclude Include="neuron.h">
       <Filter>neuron</Filter>
     </ClInclude>
   </ItemGroup>
