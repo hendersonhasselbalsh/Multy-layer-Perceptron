@@ -155,12 +155,16 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="00-utils\basic-includes.h" />
-    <ClCompile Include="00-utils\utils.cpp" />
+    <ClCompile Include="activation-functions.cpp" />
+    <ClCompile Include="lost-function.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="00-utils\utils.h" />
+    <ClInclude Include="activation-functions.h" />
+    <ClInclude Include="basic-includes.h" />
+    <ClInclude Include="lost-function.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,21 +2,39 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="00-utils\basic-includes.h">
-      <Filter>00-utils</Filter>
+    <ClCompile Include="utils.cpp">
+      <Filter>utils</Filter>
     </ClCompile>
-    <ClCompile Include="00-utils\utils.cpp">
-      <Filter>00-utils</Filter>
+    <ClCompile Include="activation-functions.cpp">
+      <Filter>activation-functions</Filter>
+    </ClCompile>
+    <ClCompile Include="lost-function.cpp">
+      <Filter>loss-functions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="00-utils">
-      <UniqueIdentifier>{90669205-22ea-4d8d-aee7-ae7c8d9d1343}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="00-utils\utils.h">
-      <Filter>00-utils</Filter>
+    <ClInclude Include="utils.h">
+      <Filter>utils</Filter>
     </ClInclude>
+    <ClInclude Include="basic-includes.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="activation-functions.h">
+      <Filter>activation-functions</Filter>
+    </ClInclude>
+    <ClInclude Include="lost-function.h">
+      <Filter>loss-functions</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="utils">
+      <UniqueIdentifier>{739f6d52-2288-4a38-b2d2-ca198ad4ad2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="activation-functions">
+      <UniqueIdentifier>{fbf2d75c-46fc-412f-85c0-5ffc37d9a472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="loss-functions">
+      <UniqueIdentifier>{8bade86e-4fe3-4393-88c5-49dc2180e5e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
