@@ -155,12 +155,14 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="00-utils\neuron.cpp" />
     <ClCompile Include="activation-functions.cpp" />
     <ClCompile Include="lost-function.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="00-utils\neuron.h" />
     <ClInclude Include="activation-functions.h" />
     <ClInclude Include="basic-includes.h" />
     <ClInclude Include="lost-function.h" />

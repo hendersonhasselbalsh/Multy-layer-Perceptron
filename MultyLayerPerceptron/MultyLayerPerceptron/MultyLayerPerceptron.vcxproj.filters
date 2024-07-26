@@ -11,6 +11,9 @@
     <ClCompile Include="lost-function.cpp">
       <Filter>loss-functions</Filter>
     </ClCompile>
+    <ClCompile Include="00-utils\neuron.cpp">
+      <Filter>neuron</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
@@ -25,6 +28,9 @@
     <ClInclude Include="lost-function.h">
       <Filter>loss-functions</Filter>
     </ClInclude>
+    <ClInclude Include="00-utils\neuron.h">
+      <Filter>neuron</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="utils">
@@ -35,6 +41,9 @@
     </Filter>
     <Filter Include="loss-functions">
       <UniqueIdentifier>{8bade86e-4fe3-4393-88c5-49dc2180e5e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="neuron">
+      <UniqueIdentifier>{80af5411-4aa5-41aa-8235-234986c5585f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
