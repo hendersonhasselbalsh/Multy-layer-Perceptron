@@ -1,6 +1,20 @@
 #include "layer.h"
 
 
+template const auto Layer::Get<Layer::Attribute::ACCUMULATED_OUTPUTS>() const;
+template const auto Layer::Get<Layer::Attribute::ALL_NEURONS>() const;
+template const auto Layer::Get<Layer::Attribute::ALL_NEURONS_GRADIENTS>() const;
+template const auto Layer::Get<Layer::Attribute::INPUT_SIZE>() const;
+template const auto Layer::Get<Layer::Attribute::LAYER_ERRORS>() const;
+template const auto Layer::Get<Layer::Attribute::LAYER_OUTPUTS>() const;
+template const auto Layer::Get<Layer::Attribute::NUMBER_OF_NEURONS>() const;
+template const auto Layer::Get<Layer::Attribute::OUTPUT_SIZE>() const;
+template const auto Layer::Get<Layer::Attribute::RECEIVED_INPUT>() const;
+
+template void Layer::Set<Layer::Attribute::LEARNING_RATE, double>(double value);
+
+
+
 
 /// <summary>
 /// Constructor, initialize neurons in this layer
