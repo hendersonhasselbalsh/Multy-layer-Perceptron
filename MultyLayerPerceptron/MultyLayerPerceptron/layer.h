@@ -16,7 +16,7 @@ class Layer {
 
 	//--- general information of this layer neurons
 		IActivationFunction* _activationFunction;
-		ILostFunction* _lostFunction;
+		ILossFunction* _lostFunction;
 		double _neuronLerningRate;
 
 	//--- attribute to store infortant values
@@ -30,7 +30,7 @@ class Layer {
 
 	public:
 	//--- construtor
-		Layer(size_t inputSize, size_t neuronQuantity, IActivationFunction* actFun = new Sigmoid(), double neuronLerningRate = 0.01, ILostFunction* _lostFunction = nullptr);
+		Layer(size_t inputSize, size_t neuronQuantity, IActivationFunction* actFun = new Sigmoid(), double neuronLerningRate = 0.01, ILossFunction* _lostFunction = nullptr);
 		~Layer();
 
 	//--- main methods
@@ -40,7 +40,14 @@ class Layer {
 		double GradientAtIndex(int index);
 		std::vector<double> Gradients();								
 
-		
+	//--- Auxiliar methods
+		std::vector<double> CalculateAccumulatedError(std::vector<double> correctValues, std::vector<double> predictedValue);
+		void UpdateBatchNormParms();
+		std::vector<double> MeanAccumulatedOutput(double batchSize);
+		Neuron& operator[](size_t neuronIndex);
+		friend std::ostream& operator<<(std::ostream& os, Layer layer);
+		Json ToJson() const;
+		Layer LoadWeightsFromJson(const Json& j);
 
 
 	friend class MLP;

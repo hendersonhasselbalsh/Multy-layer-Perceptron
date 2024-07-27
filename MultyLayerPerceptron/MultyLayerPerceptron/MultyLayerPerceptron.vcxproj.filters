@@ -14,6 +14,9 @@
     <ClCompile Include="neuron.cpp">
       <Filter>neuron</Filter>
     </ClCompile>
+    <ClCompile Include="layer.cpp">
+      <Filter>layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
@@ -31,6 +34,9 @@
     <ClInclude Include="neuron.h">
       <Filter>neuron</Filter>
     </ClInclude>
+    <ClInclude Include="layer.h">
+      <Filter>layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="utils">
@@ -44,6 +50,9 @@
     </Filter>
     <Filter Include="neuron">
       <UniqueIdentifier>{80af5411-4aa5-41aa-8235-234986c5585f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="layer">
+      <UniqueIdentifier>{63683a2d-1536-46af-9952-f57f563a3772}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

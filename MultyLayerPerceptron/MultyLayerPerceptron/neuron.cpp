@@ -11,7 +11,7 @@ template const auto Neuron::Get<Neuron::Attribute::U>() const;
 template const auto Neuron::Get<Neuron::Attribute::WEIGHTS>() const;
 
 template void Neuron::Set<Neuron::Attribute::ACTIVATION_FUNC, IActivationFunction*>(IActivationFunction* value);
-template void Neuron::Set<Neuron::Attribute::LOST_FUNC, ILostFunction*>(ILostFunction* value);
+template void Neuron::Set<Neuron::Attribute::LOST_FUNC, ILossFunction*>(ILossFunction* value);
 template void Neuron::Set<Neuron::Attribute::LEARNING_RATE, double>(double value);
 
 
@@ -28,7 +28,7 @@ template void Neuron::Set<Neuron::Attribute::LEARNING_RATE, double>(double value
 /// <param name="lossFunc"> Loss function, only set for the neurons in the last layer; by default, it is nullptr. </param>
 
 Neuron::Neuron(size_t inputSize, IActivationFunction* actFun, double leraningRate, ILossFunction* lossFunc)
-    : _inputSize(inputSize+1), _learningRate(leraningRate), activationFunction(actFun), _lossFunction(lostFunc)
+    : _inputSize(inputSize+1), _learningRate(leraningRate), activationFunction(actFun), _lossFunction(lossFunc)
 {
     _error = 0.0;
     _output = 0.0;
@@ -93,7 +93,7 @@ double Neuron::CalculateError(double correctValue, double predictedValue, size_t
 
     _error = _lossFunction->f(predictedValue, correctValue);
 
-    double dL = _lostFunction->df(predictedValue, correctValue);       // (dL/da)
+    double dL = _lossFunction->df(predictedValue, correctValue);       // (dL/da)
     double du = activationFunction->df(_u);                            // (da/dU) 
     _gradient = du * dL;                                               // (dL/dU) = (dL/da) * (da/dU)
 

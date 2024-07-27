@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="activation-functions.cpp" />
+    <ClCompile Include="layer.cpp" />
     <ClCompile Include="lost-function.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="neuron.cpp" />
@@ -164,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="activation-functions.h" />
     <ClInclude Include="basic-includes.h" />
+    <ClInclude Include="layer.h" />
     <ClInclude Include="lost-function.h" />
     <ClInclude Include="neuron.h" />
     <ClInclude Include="utils.h" />

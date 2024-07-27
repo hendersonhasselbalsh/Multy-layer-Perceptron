@@ -82,7 +82,7 @@ const auto Neuron::Get() const
 		return activationFunction;
 	}
 	else if constexpr (attrib == Neuron::Attribute::LOST_FUNC) {
-		return _lostFunction;
+		return _lossFunction;
 	}
 	else if constexpr (attrib == Attribute::WEIGHTS) {
 		return _weights;
@@ -127,8 +127,8 @@ void Neuron::Set(T value)
 		activationFunction  =  value;
 	}
 	else if constexpr (attrib == Neuron::Attribute::LOST_FUNC) {
-		static_assert(std::is_same_v<T, ILostFunction*>  &&  "wrong type");
-		_lostFunction  =  value;
+		static_assert(std::is_same_v<T, ILossFunction*>  &&  "wrong type");
+		_lossFunction  =  value;
 	}
 	else if constexpr (attrib == Neuron::Attribute::LEARNING_RATE) {
 		static_assert(std::is_same_v<T, double>  &&  "wrong type");
