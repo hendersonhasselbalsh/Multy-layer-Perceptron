@@ -1,5 +1,22 @@
 #include "neuron.h"
 
+
+template const auto Neuron::Get<Neuron::Attribute::ACTIVATION_FUNC>() const;
+template const auto Neuron::Get<Neuron::Attribute::BIAS>() const;
+template const auto Neuron::Get<Neuron::Attribute::ERROR>() const;
+template const auto Neuron::Get<Neuron::Attribute::GRADIENT_DL_DU>() const;
+template const auto Neuron::Get<Neuron::Attribute::LOST_FUNC>() const;
+template const auto Neuron::Get<Neuron::Attribute::OUTPUT>() const;
+template const auto Neuron::Get<Neuron::Attribute::U>() const;
+template const auto Neuron::Get<Neuron::Attribute::WEIGHTS>() const;
+
+template void Neuron::Set<Neuron::Attribute::ACTIVATION_FUNC, IActivationFunction*>(IActivationFunction* value);
+template void Neuron::Set<Neuron::Attribute::LOST_FUNC, ILostFunction*>(ILostFunction* value);
+template void Neuron::Set<Neuron::Attribute::LEARNING_RATE, double>(double value);
+
+
+
+
 /// <summary>
 ///     Neuron class constructor,
 ///     initializes the weights

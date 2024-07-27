@@ -23,7 +23,6 @@ class Neuron {
 		ILossFunction* _lossFunction;              
 		double _gradient;						   // gradient of loss With Respect To U (dL/dU) = (dO/dU) * (dL/dO)
 
-
 	//--- variables to store important values
 		size_t _inputSize;                                              
 		double _error;	                                                
@@ -31,7 +30,6 @@ class Neuron {
 		double _u;		          // weighted sum                                      
 
 		double _accumulatedU;
-
 
 
 	public:
@@ -53,5 +51,95 @@ class Neuron {
 		Json ToJson() const;
 		std::vector<double> LoadWeightsFromJson(const Json& j);
 
+	//--- getter and setter
+		enum class Attribute { 
+			BIAS, ERROR, U, GRADIENT_DL_DU, LEARNING_RATE,      // TYPE: double 
+			WEIGHTS, OUTPUT, 									// TYPE: std::vector<double> 
+			ACTIVATION_FUNC,									// TYPE: IActivationFunction* 
+			LOST_FUNC											// TYPE: ILostFunction* 
+		};
+		template <Attribute attrib> const auto Get() const;
+		template <Attribute attrib, typename T> void Set(T value);
+
 };
+
+
+
+
+/// <summary>
+/// Getters
+/// </summary>
+/// <exemple>
+/// <code>
+///		double error = neuron.Get<Neuron::Attribute::ERROR>();
+/// </code>
+/// </exemple>
+
+template<Neuron::Attribute attrib>
+const auto Neuron::Get() const
+{
+	if constexpr (attrib == Neuron::Attribute::ACTIVATION_FUNC) {
+		return activationFunction;
+	}
+	else if constexpr (attrib == Neuron::Attribute::LOST_FUNC) {
+		return _lostFunction;
+	}
+	else if constexpr (attrib == Attribute::WEIGHTS) {
+		return _weights;
+	} 
+	else if constexpr (attrib == Attribute::BIAS) {
+		return _weights[0];
+	} 
+	else if constexpr (attrib == Attribute::ERROR) {
+		return _error;
+	} 
+	else if constexpr (attrib == Attribute::U) {
+		return _u;
+	} 
+	else if constexpr (attrib == Attribute::OUTPUT) {
+		return _output;
+	} 
+	else if constexpr (attrib == Attribute::GRADIENT_DL_DU) {
+		return _gradient;
+	} 
+	else {
+		assert(false  &&  "Unsupported attribute");
+	}
+}
+
+
+
+
+/// <summary>
+/// Setters
+/// </summary>
+/// <exemple>
+/// <code>
+///		neuron.Set<Neuron::Attribute::LEARNING_RATE, double>(0.003);
+/// </code>
+/// </exemple>
+
+template<Neuron::Attribute attrib, typename T>
+void Neuron::Set(T value)
+{
+	if constexpr (attrib == Neuron::Attribute::ACTIVATION_FUNC) {
+		static_assert( std::is_same_v<T, IActivationFunction*>  &&  "wrong type");
+		activationFunction  =  value;
+	}
+	else if constexpr (attrib == Neuron::Attribute::LOST_FUNC) {
+		static_assert(std::is_same_v<T, ILostFunction*>  &&  "wrong type");
+		_lostFunction  =  value;
+	}
+	else if constexpr (attrib == Neuron::Attribute::LEARNING_RATE) {
+		static_assert(std::is_same_v<T, double>  &&  "wrong type");
+		_learningRate  =  value;
+	}
+	else if constexpr (attrib == Neuron::Attribute::GRADIENT_DL_DU) {
+		static_assert(std::is_same_v<T, double>  &&  "wrong type");
+		_gradient  =  value;
+	}
+	else {
+		assert(false && "Not settable attribute");
+	}
+}
 
