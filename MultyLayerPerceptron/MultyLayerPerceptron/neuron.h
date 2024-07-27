@@ -39,5 +39,9 @@ class Neuron {
 		Neuron(size_t inputSize, IActivationFunction* actFun = new Tanh(), double leraningRate = 0.03, ILossFunction* lossFunc = nullptr);
 		~Neuron();
 
+
+	//--- fundamental methods
+		double CalculateOutput(std::vector<double> inputs);
+
 };
 
