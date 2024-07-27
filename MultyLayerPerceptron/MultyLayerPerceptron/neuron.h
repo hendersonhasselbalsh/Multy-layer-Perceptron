@@ -20,7 +20,7 @@ class Neuron {
 		double _learningRate;                      
 		std::vector<double> _weights;              // wieght and bias (weights[0])
 		IActivationFunction* activationFunction;   
-		ILossFunction* _lostFunction;              
+		ILossFunction* _lossFunction;              
 		double _gradient;						   // gradient of loss With Respect To U (dL/dU) = (dO/dU) * (dL/dO)
 
 
@@ -35,8 +35,8 @@ class Neuron {
 
 
 	public:
-		//--- construtor
-		Neuron(size_t inputSize, IActivationFunction* actFun = new Tanh(), double leraningRate = 0.03, ILossFunction* lostFunc = nullptr);
+	//--- construtor
+		Neuron(size_t inputSize, IActivationFunction* actFun = new Tanh(), double leraningRate = 0.03, ILossFunction* lossFunc = nullptr);
 		~Neuron();
 
 };
