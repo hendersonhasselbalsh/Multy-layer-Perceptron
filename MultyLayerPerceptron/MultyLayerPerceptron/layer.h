@@ -33,6 +33,15 @@ class Layer {
 		Layer(size_t inputSize, size_t neuronQuantity, IActivationFunction* actFun = new Sigmoid(), double neuronLerningRate = 0.01, ILostFunction* _lostFunction = nullptr);
 		~Layer();
 
+	//--- main methods
+		std::vector<double> CalculateLayerOutputs(std::vector<double> inputs, std::vector<double>* means = nullptr, std::vector<double>* devs = nullptr);
+		std::vector<double> UpdateLastLayerNeurons(std::vector<double> correctValues, std::vector<double> predictedValues, std::vector<double> inputs, size_t* batchSize = nullptr, bool isBatchNorm = false);
+		void UpdateHiddenLayerNeurons(std::vector<double> nextLayerGradient, std::vector<double> inputs, size_t* batchSize = nullptr, bool isBatchNorm = false);
+		double GradientAtIndex(int index);
+		std::vector<double> Gradients();								
+
+		
+
 
 	friend class MLP;
 };
