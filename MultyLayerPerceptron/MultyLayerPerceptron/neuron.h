@@ -42,6 +42,7 @@ class Neuron {
 
 	//--- fundamental methods
 		double CalculateOutput(std::vector<double> inputs);
+		double CalculateError(double correctValue, double predictedValue, size_t* batchSize = nullptr);
 
 };
 

@@ -59,3 +59,25 @@ double Neuron::CalculateOutput(std::vector<double> inputs)
 }
 
 
+
+
+/// <summary>
+/// Calculates the error and the gradient of the loss with respect to the weighted sum.
+/// </summary>
+/// <param name="correctValue">The correct value from the label vector.</param>
+/// <param name="predictedValue">The predicted value of the neuron.</param>
+/// <param name="batchSize">The batch size used in batch training. (Optional)</param>
+/// <returns>The error calculated by the loss function.</returns>
+
+double Neuron::CalculateError(double correctValue, double predictedValue, size_t* batchSize)
+{
+    if (batchSize != nullptr) {  _u = _accumulatedU / (double)(*batchSize); }
+
+    _error = _lossFunction->f(predictedValue, correctValue);
+
+    double dL = _lostFunction->df(predictedValue, correctValue);       // (dL/da)
+    double du = activationFunction->df(_u);                            // (da/dU) 
+    _gradient = du * dL;                                               // (dL/dU) = (dL/da) * (da/dU)
+
+    return _error;
+}

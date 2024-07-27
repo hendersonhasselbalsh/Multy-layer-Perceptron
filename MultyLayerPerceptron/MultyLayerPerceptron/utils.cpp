@@ -9,7 +9,7 @@ double Utils::RandomNormalDistributionValue(double min, double max)
 }
 
 
-double Utils::ScalarProduct(std::vector<double> inputs, std::vector<double> weights)
+double Utils::WeightedSum(std::vector<double> inputs, std::vector<double> weights)
 {
     assert(inputs.size() == weights.size());
 
