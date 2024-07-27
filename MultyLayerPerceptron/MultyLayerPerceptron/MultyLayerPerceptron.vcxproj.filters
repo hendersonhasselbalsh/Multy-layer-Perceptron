@@ -17,6 +17,12 @@
     <ClCompile Include="layer.cpp">
       <Filter>layer</Filter>
     </ClCompile>
+    <ClCompile Include="multy-layer-perceptron.cpp">
+      <Filter>mlp</Filter>
+    </ClCompile>
+    <ClCompile Include="mlp-builder.cpp">
+      <Filter>mlp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
@@ -37,6 +43,12 @@
     <ClInclude Include="layer.h">
       <Filter>layer</Filter>
     </ClInclude>
+    <ClInclude Include="multy-layer-perceptron.h">
+      <Filter>mlp</Filter>
+    </ClInclude>
+    <ClInclude Include="mlp-builder.h">
+      <Filter>mlp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="utils">
@@ -53,6 +65,9 @@
     </Filter>
     <Filter Include="layer">
       <UniqueIdentifier>{63683a2d-1536-46af-9952-f57f563a3772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mlp">
+      <UniqueIdentifier>{3cae292c-7d67-408a-96b1-47450c0edcee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -114,7 +114,8 @@ void MLP::Training(std::vector<MLP_DATA> trainigSet, std::function<void(void)> c
 		std::vector<double> label = ParseLabelToVector( data.labelIndex );
 		_trainingSet.push_back({ data.input, label });
 	}
-
+	
+	std::cout << "\n\nstarting training:\n\n";
 	Training(_trainingSet, callback);
 
 	BuildJson();

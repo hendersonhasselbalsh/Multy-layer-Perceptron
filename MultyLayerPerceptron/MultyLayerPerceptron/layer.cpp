@@ -31,6 +31,7 @@ Layer::Layer(size_t inputSize, size_t neuronQuantity, IActivationFunction* actFu
 	_neurons = std::vector<Neuron>(neuronQuantity, Neuron(inputSize, actFun, neuronLerningRate, _lostFunction));
 
 	size_t layerOutputSize = _neurons.size() + 1;
+	_outputs =  std::vector<double>(layerOutputSize, 1.0);
 	_accumulatedLayerOutouts =  std::vector<double>(layerOutputSize, 0.0);
 
 	_alpha = 1.0;
@@ -46,7 +47,6 @@ Layer::Layer(size_t inputSize, size_t neuronQuantity, IActivationFunction* actFu
 
 Layer::~Layer() 
 {
-	delete _activationFunction;
 }
 
 

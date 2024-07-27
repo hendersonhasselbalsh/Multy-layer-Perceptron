@@ -53,10 +53,10 @@ MlpBuilder MlpBuilder::Architecture(std::vector<LayerSignature> layerSignature)
 
 		size_t qntNeuron  =  layerSignature[i]._qntNeurons;
 		IActivationFunction* actFunc  =  layerSignature[i]._activationFunction;
-		ILostFunction* lostFunc  =  (layerSignature[i]._lostFunction == nullptr) ? nullptr : layerSignature[i]._lostFunction;
+		ILossFunction* lossFunc  =  (layerSignature[i]._lossFunction == nullptr) ? nullptr : layerSignature[i]._lossFunction;
 		double learningRate  =  layerSignature[i]._learningRate;
 
-		_mlp._layers.push_back( Layer(inputSize, qntNeuron, actFunc, learningRate, lostFunc) );
+		_mlp._layers.push_back( Layer(inputSize, qntNeuron, actFunc, learningRate, lossFunc) );
 		inputSize  =  qntNeuron;
 	}
 
@@ -65,7 +65,7 @@ MlpBuilder MlpBuilder::Architecture(std::vector<LayerSignature> layerSignature)
 
 
 
-MlpBuilder MlpBuilder::LostFunction(ILostFunction* lostFunction)
+MlpBuilder MlpBuilder::LostFunction(ILossFunction* lostFunction)
 {
 	assert( _mlp._layers.size() > 0 && "DEFINE LAYER ARCHITECTURE FIRST");
 
@@ -76,7 +76,7 @@ MlpBuilder MlpBuilder::LostFunction(ILostFunction* lostFunction)
 
 	for (size_t i = 0; i < neuronSize; i++) {
 		//lastLayer[i].SetLostFunction( lostFunction );
-		lastLayer[i].Set<Neuron::Attribute::LOST_FUNC, ILostFunction*>( lostFunction );
+		lastLayer[i].Set<Neuron::Attribute::LOST_FUNC, ILossFunction*>( lostFunction );
 	}
 
 	return (*this);

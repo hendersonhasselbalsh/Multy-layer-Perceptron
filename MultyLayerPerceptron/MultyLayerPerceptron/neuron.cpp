@@ -52,8 +52,6 @@ Neuron::Neuron(size_t inputSize, IActivationFunction* actFun, double leraningRat
 
 Neuron::~Neuron()
 {
-    delete activationFunction;
-    delete _lossFunction;
 }
 
 

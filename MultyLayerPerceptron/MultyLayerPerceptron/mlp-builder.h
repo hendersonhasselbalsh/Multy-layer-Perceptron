@@ -36,7 +36,7 @@ class MlpBuilder {
 		MlpBuilder InputSize( size_t size );
 		MlpBuilder Architecture( std::vector<size_t> neuronsInLayer );
 		MlpBuilder Architecture( std::vector<LayerSignature> layerSignature );
-		MlpBuilder LostFunction( ILostFunction* lostFunction );
+		MlpBuilder LostFunction( ILossFunction* lostFunction );
 		MlpBuilder MaxEpochs( size_t epochs );
 		MlpBuilder AcceptableAccuracy( double accuracy );
 		MlpBuilder ParseLabelToVector( std::function<std::vector<double>(size_t)> CallBack );

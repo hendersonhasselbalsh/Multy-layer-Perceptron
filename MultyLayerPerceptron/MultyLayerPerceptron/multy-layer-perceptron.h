@@ -18,7 +18,7 @@ class MLP {
 	private:
 	//--- atributos importantes do mlp
 		std::vector<Layer> _layers;
-		ILostFunction* _lostFunction;
+		ILossFunction* _lostFunction;
 
 		std::function<std::vector<double>(size_t)> ParseLabelToVector;
 		std::function<bool(size_t, double)> WhenToUpdateLeraningRate;             //  bool f(size_t epoch, double accuracy);

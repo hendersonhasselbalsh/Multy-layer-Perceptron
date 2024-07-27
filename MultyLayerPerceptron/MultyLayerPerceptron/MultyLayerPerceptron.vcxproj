@@ -159,6 +159,8 @@
     <ClCompile Include="layer.cpp" />
     <ClCompile Include="lost-function.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mlp-builder.cpp" />
+    <ClCompile Include="multy-layer-perceptron.cpp" />
     <ClCompile Include="neuron.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
@@ -167,6 +169,8 @@
     <ClInclude Include="basic-includes.h" />
     <ClInclude Include="layer.h" />
     <ClInclude Include="lost-function.h" />
+    <ClInclude Include="mlp-builder.h" />
+    <ClInclude Include="multy-layer-perceptron.h" />
     <ClInclude Include="neuron.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
