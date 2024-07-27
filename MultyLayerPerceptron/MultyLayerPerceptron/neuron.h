@@ -43,6 +43,9 @@ class Neuron {
 	//--- fundamental methods
 		double CalculateOutput(std::vector<double> inputs);
 		double CalculateError(double correctValue, double predictedValue, size_t* batchSize = nullptr);
+		double CalculateGradient(double gradientLostWithRespectToOutput, size_t* batchSize = nullptr);
+		void UpdateWeights(std::vector<double> receivedInputs);
+		const double Gradient(size_t index);
 
 };
 

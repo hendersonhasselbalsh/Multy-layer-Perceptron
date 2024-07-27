@@ -63,6 +63,7 @@ double Neuron::CalculateOutput(std::vector<double> inputs)
 
 /// <summary>
 /// Calculates the error and the gradient of the loss with respect to the weighted sum.
+/// Used only by neurons in the last layer.
 /// </summary>
 /// <param name="correctValue">The correct value from the label vector.</param>
 /// <param name="predictedValue">The predicted value of the neuron.</param>
@@ -80,4 +81,59 @@ double Neuron::CalculateError(double correctValue, double predictedValue, size_t
     _gradient = du * dL;                                               // (dL/dU) = (dL/da) * (da/dU)
 
     return _error;
+}
+
+
+
+
+/// <summary>
+/// Also a method to calculate gradient of loss with respect to the weighted sum.
+/// Udes by neurons in the hidden layers.
+/// </summary>
+/// <param name="gradientLostWithRespectToOutput">next layer gradient with respect to input</param>
+/// <param name="batchSize">The batch size used in batch training. (Optional)</param>
+/// <returns>Gradient of loss with respect to the weighted sum.</returns>
+
+double Neuron::CalculateGradient(double gradientLostWithRespectToOutput, size_t* batchSize)
+{
+    if (batchSize != nullptr) {  _u = _accumulatedU / (double)(*batchSize); }
+
+    double du = activationFunction->df(_u);
+    _gradient  =  du * gradientLostWithRespectToOutput;     // (dL/dU) 
+
+    return _gradient;
+}
+
+
+
+
+/// <summary>
+/// Update weight with gradient descendent.
+/// </summary>
+/// <param name="receivedInputs">Received Input</param>
+
+void Neuron::UpdateWeights(std::vector<double> receivedInputs)
+{
+    assert(receivedInputs.size() == _weights.size());
+
+    for (size_t i = 0; i < _weights.size(); i++) {
+        double gradOfLostWithRespectToWeight = _gradient * receivedInputs[i];                                 // (dL/dW) derivation of lost with respect to this layer weight
+        _weights[i]  =  _weights[i] - _learningRate * gradOfLostWithRespectToWeight; 
+    }
+
+    _accumulatedU = 0.0;
+}
+
+
+
+
+/// <summary>
+/// Gradient of loss with respect to input
+/// </summary>
+/// <param name="index">Input index</param>
+/// <returns>Gradient of loss with respect to input at an indicated index</returns>
+
+const double Neuron::Gradient(size_t index)
+{
+    return _weights[index] * _gradient;
 }
