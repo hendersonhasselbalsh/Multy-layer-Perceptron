@@ -137,3 +137,96 @@ const double Neuron::Gradient(size_t index)
 {
     return _weights[index] * _gradient;
 }
+
+
+
+
+/// <summary>
+/// Especial access operator to an especific weight
+/// </summary>
+/// <param name="weightIndex">weight Index</param>
+/// <returns>return weight value by reference</returns>
+/// <exemple>
+/// <code>
+///     Neuron neuron = Neuorn(10);
+///     double weight_at_index zero = neuron[0];
+///     neuron[0] = 10;  //<-- reset weight value;
+/// </code>
+/// </exemple>
+
+double& Neuron::operator[](int weightIndex)
+{
+    return (double&)_weights[weightIndex];
+}
+
+
+
+
+/// <summary>
+/// To String
+/// </summary>
+
+std::ostream& operator<<(std::ostream& os, Neuron neuron)
+{
+    os << "[ ";
+    for (auto& w : neuron._weights) { os << w << " ; "; }
+    os << "\b\b ]";
+
+    return os;
+}
+
+
+
+
+/// <summary>
+/// clone operator
+/// </summary>
+
+Neuron Neuron::operator=(const Neuron& neuron)
+{
+    if (this != &neuron) {
+        _weights = neuron._weights;
+        activationFunction = neuron.activationFunction;
+        _inputSize = neuron._inputSize;
+        _error = neuron._error;
+        _output = neuron._output;
+        _u = neuron._u;
+        _gradient = neuron._gradient;
+        _learningRate = neuron._learningRate;
+    }
+    return *this;
+}
+
+
+
+
+/// <summary>
+/// Save on Json
+/// </summary>
+/// <returns></returns>
+
+Json Neuron::ToJson() const
+{
+    Json json ={
+        {"bias", _weights[0] },
+        {"weights", _weights}
+    };
+
+    return json;
+}
+
+
+
+
+/// <summary>
+/// Load weight fron json
+/// </summary>
+/// <param name="j"></param>
+/// <returns></returns>
+
+std::vector<double> Neuron::LoadWeightsFromJson(const Json& j)
+{
+    (*this)._weights = j.at("weights").get<std::vector<double>>();
+    return (*this)._weights;
+}
+

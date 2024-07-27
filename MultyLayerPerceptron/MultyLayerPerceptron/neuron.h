@@ -39,13 +39,19 @@ class Neuron {
 		Neuron(size_t inputSize, IActivationFunction* actFun = new Tanh(), double leraningRate = 0.03, ILossFunction* lossFunc = nullptr);
 		~Neuron();
 
-
 	//--- fundamental methods
 		double CalculateOutput(std::vector<double> inputs);
 		double CalculateError(double correctValue, double predictedValue, size_t* batchSize = nullptr);
 		double CalculateGradient(double gradientLostWithRespectToOutput, size_t* batchSize = nullptr);
 		void UpdateWeights(std::vector<double> receivedInputs);
 		const double Gradient(size_t index);
+
+	//--- auxiliar methods
+		double& operator[](int weightIndex);
+		friend std::ostream& operator<<(std::ostream& os, Neuron neuron);
+		Neuron operator=(const Neuron& neuron);
+		Json ToJson() const;
+		std::vector<double> LoadWeightsFromJson(const Json& j);
 
 };
 
