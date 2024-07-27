@@ -32,8 +32,30 @@ Neuron::Neuron(size_t inputSize, IActivationFunction* actFun, double leraningRat
 /// <summary>
 ///     Free all alocated pointers
 /// </summary>
+
 Neuron::~Neuron()
 {
     delete activationFunction;
     delete _lossFunction;
 }
+
+
+
+
+/// <summary>
+/// Calculates the activation value of the neuron given an input vector.
+/// </summary>
+/// <param name="inputs">The input vector.</param>
+/// <returns>The neuron's activation value.</returns>
+
+double Neuron::CalculateOutput(std::vector<double> inputs)
+{
+    _u = Utils::WeightedSum(inputs, _weights);         
+    _output = activationFunction->f(_u);
+
+    _accumulatedU += _u;
+
+    return _output;
+}
+
+
